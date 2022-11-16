@@ -8,23 +8,32 @@ window.addEventListener("load", () => {
 
   titleInput.addEventListener("keyup", (e) => {
     const value = e.currentTarget.value;
-    submitButton.ariaDisabled = false;
 
-    value.length < 4 && true;
+    if (value.length < 4) {
+      submitButton.disabled = true;
+    } else {
+      submitButton.disabled = false;
+    }
   });
 
   descriptionInput.addEventListener("keyup", (e) => {
     const value = e.currentTarget.value;
-    submitButton.ariaDisabled = false;
 
-    value.length < 4 && true;
+    if (value.length < 4) {
+      submitButton.disabled = true;
+    } else {
+      submitButton.disabled = false;
+    }
   });
 
   imageInput.addEventListener("keyup", (e) => {
     const value = e.currentTarget.value;
-    submitButton.ariaDisabled = false;
 
-    value.length < 4 && true;
+    if (value.length < 4) {
+      submitButton.disabled = true;
+    } else {
+      submitButton.disabled = false;
+    }
   });
 
   form.addEventListener("submit", (e) => {
@@ -38,9 +47,6 @@ window.addEventListener("load", () => {
       alert("Cada campo deve ter no mínimo 4 caracteres");
       return;
     } else if (description.length < 4) {
-      alert("Cada campo deve ter no mínimo 4 caracteres");
-      return;
-    } else if (image.length < 4) {
       alert("Cada campo deve ter no mínimo 4 caracteres");
       return;
     }
@@ -66,6 +72,7 @@ window.addEventListener("load", () => {
     const taskImage = document.createElement("img");
     taskImage.classList.add("task-img");
     taskImage.src = image;
+    taskImage.alt = "task-img"
 
     taskContent.appendChild(taskImage);
 

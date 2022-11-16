@@ -8,13 +8,13 @@ const submitButton = document.querySelector("#new-task-submit");
 
 const toggleButton = () => {
   if (
-    titleInput.value >= 4 &&
-    descriptionInput.value >= 4 &&
-    imageInput.value >= 4
+    titleInput.value.length >= 4 &&
+    descriptionInput.value.length >= 4 &&
+    imageInput.value.length >= 4
   ) {
-    submitButton.disable = false;
+    submitButton.disabled = false;
   } else {
-    submitButton.disable = true;
+    submitButton.disabled = true;
   }
 };
 

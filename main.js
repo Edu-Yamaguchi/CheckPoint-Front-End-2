@@ -1,41 +1,26 @@
+const form = document.querySelector("#new-task-form");
+const titleInput = document.querySelector("#fname");
+const descriptionInput = document.querySelector("#ftext");
+const imageInput = document.querySelector("#furl");
+const taskList = document.querySelector("#tasks");
+const inputs = document.querySelectorAll("input");
+const submitButton = document.querySelector("#new-task-submit");
+
+const toggleButton = () => {
+  if (
+    titleInput.value >= 4 &&
+    descriptionInput.value >= 4 &&
+    imageInput.value >= 4
+  ) {
+    submitButton.disable = false;
+    return;
+  } else {
+    submitButton.disable = true;
+    return;
+  }
+};
+
 window.addEventListener("load", () => {
-  const form = document.querySelector("#new-task-form");
-  const titleInput = document.querySelector("#fname");
-  const descriptionInput = document.querySelector("#ftext");
-  const imageInput = document.querySelector("#furl");
-  const taskList = document.querySelector("#tasks");
-  const submitButton = document.querySelector("#new-task-submit");
-
-  titleInput.addEventListener("keyup", (e) => {
-    const value = e.currentTarget.value;
-
-    if (value.length < 4) {
-      submitButton.disabled = true;
-    } else {
-      submitButton.disabled = false;
-    }
-  });
-
-  descriptionInput.addEventListener("keyup", (e) => {
-    const value = e.currentTarget.value;
-
-    if (value.length < 4) {
-      submitButton.disabled = true;
-    } else {
-      submitButton.disabled = false;
-    }
-  });
-
-  imageInput.addEventListener("keyup", (e) => {
-    const value = e.currentTarget.value;
-
-    if (value.length < 4) {
-      submitButton.disabled = true;
-    } else {
-      submitButton.disabled = false;
-    }
-  });
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -47,6 +32,9 @@ window.addEventListener("load", () => {
       alert("Cada campo deve ter no mínimo 4 caracteres");
       return;
     } else if (description.length < 4) {
+      alert("Cada campo deve ter no mínimo 4 caracteres");
+      return;
+    } else if (image.length < 4) {
       alert("Cada campo deve ter no mínimo 4 caracteres");
       return;
     }
@@ -72,7 +60,7 @@ window.addEventListener("load", () => {
     const taskImage = document.createElement("img");
     taskImage.classList.add("task-img");
     taskImage.src = image;
-    taskImage.alt = "task-img"
+    taskImage.alt = "task-img";
 
     taskContent.appendChild(taskImage);
 

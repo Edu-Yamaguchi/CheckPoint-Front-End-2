@@ -70,20 +70,21 @@
           <form id="new-task-form">
             <div class="modal-body">
               <label for="fname">Título</label><br />
-              <input type="text" id="fname" name="fname" required /><br />
+              <input type="text" id="fname" name="fname" required onchange="toggleButton()" /><br />
 
               <label for="ftext">Descrição</label><br />
-              <textarea
+              <input
                 name="ftext"
                 id="ftext"
                 cols="40"
                 rows="5"
                 required
-              ></textarea
-              ><br />
+                onchange="toggleButton()"
+              />
+              <br />
 
               <label for="furl">Link da Imagem</label><br />
-              <input type="text" id="furl" name="furl" required /><br />
+              <input type="text" id="furl" name="furl" required onchange="toggleButton()" /><br />
             </div>
             <div class="modal-footer">
               <button
@@ -97,7 +98,6 @@
                 type="submit"
                 class="btn btn-primary"
                 id="new-task-submit"
-                disabled
               >
                 Salvar
               </button>
